@@ -1,0 +1,107 @@
+{
+  "schema": "jiangcheng-guren/botchain-mainnet-evidence/v1",
+  "verifiedAt": "2026-10-08T02:11:30Z",
+  "network": {
+    "name": "BOT Chain Mainnet",
+    "chainId": 677,
+    "rpcUrl": "https://rpc.botchain.ai",
+    "explorerUrl": "https://scan.botchain.ai"
+  },
+  "registry": {
+    "address": "0x8DC9E18D2492F19aafa0B96B5bC5f9cd41b45493",
+    "owner": "0x3963Dd43d4D86749F535c562Ee5a14E723323f66",
+    "runtimeBytecodeHash": "0x53101852e26cd46e3b7fdac9a210fdf64b7591661fc6397e4b14adb896be75c8",
+    "explorerUrl": "https://scan.botchain.ai/address/0x8DC9E18D2492F19aafa0B96B5bC5f9cd41b45493",
+    "deployment": {
+      "transactionHash": "0x0ae95f482651cef08636c3d1258bda58aa7e1a920b69e3b2986055c465a0f4a7",
+      "blockNumber": 25866871,
+      "status": 1,
+      "explorerUrl": "https://scan.botchain.ai/tx/0x0ae95f482651cef08636c3d1258bda58aa7e1a920b69e3b2986055c465a0f4a7"
+    }
+  },
+  "liBaiPersonaV1": {
+    "packageKey": "jiangcheng-guren:persona:li-bai",
+    "packageId": "0xd0431554c39540f53884fd4442bfd4208ec3b9cb0b7bf0ac9dee68815b6e345e",
+    "version": 1,
+    "packageHash": "0x633d8480babc919399ece09ff63a6a7f79b2dfdc3ff40338dd9bfda5e0fd3399",
+    "issuer": "0x3963Dd43d4D86749F535c562Ee5a14E723323f66",
+    "registration": {
+      "transactionHash": "0x427481d49ae641c8e4dfac922188d007305ada2dafa4f0a65c61394809c70d5a",
+      "blockNumber": 25866897,
+      "status": 1,
+      "explorerUrl": "https://scan.botchain.ai/tx/0x427481d49ae641c8e4dfac922188d007305ada2dafa4f0a65c61394809c70d5a"
+    }
+  },
+  "memoryIssue": {
+    "displayMemoryId": "JC-LB-MUYWEBEI",
+    "onchainMemoryId": "0xd49ce879e3d13fda0c9b21993f107b3752c7baeb6ccb3e3bef8bca0e129a9ab7",
+    "packageId": "0xd0431554c39540f53884fd4442bfd4208ec3b9cb0b7bf0ac9dee68815b6e345e",
+    "version": 1,
+    "payloadHash": "0x9c8728cfd8ef31b874b519b22fea1fd96ac6a910ab9a68ffb3882530881c4a86",
+    "issuer": "0x3963Dd43d4D86749F535c562Ee5a14E723323f66",
+    "transaction": {
+      "transactionHash": "0x04e3582cc38a038a6f4684a6002d74b70ae6b7cf45e954e99c02655ed2fd8e88",
+      "blockNumber": 25921329,
+      "blockHash": "0xb009d07f2d08a978d46d09db4378c3f7c3920d7ecf6f71b264f93ea613eedcae",
+      "blockTimestamp": "2026-10-08T02:10:07Z",
+      "status": 1,
+      "from": "0x3963Dd43d4D86749F535c562Ee5a14E723323f66",
+      "to": "0x8DC9E18D2492F19aafa0B96B5bC5f9cd41b45493",
+      "method": "issueMemory(bytes32,bytes32,uint32,bytes32)",
+      "methodSelector": "0xf8f58a59",
+      "valueWei": "0",
+      "gasUsed": 164002,
+      "gasLimit": 166471,
+      "gasPriceWei": "20000000000",
+      "feeWei": "3280040000000000",
+      "feeBOT": "0.00328004",
+      "rawInput": "0xf8f58a59d49ce879e3d13fda0c9b21993f107b3752c7baeb6ccb3e3bef8bca0e129a9ab7d0431554c39540f53884fd4442bfd4208ec3b9cb0b7bf0ac9dee68815b6e345e00000000000000000000000000000000000000000000000000000000000000019c8728cfd8ef31b874b519b22fea1fd96ac6a910ab9a68ffb3882530881c4a86",
+      "explorerUrl": "https://scan.botchain.ai/tx/0x04e3582cc38a038a6f4684a6002d74b70ae6b7cf45e954e99c02655ed2fd8e88"
+    },
+    "memoryIssuedEvent": {
+      "address": "0x8DC9E18D2492F19aafa0B96B5bC5f9cd41b45493",
+      "transactionHash": "0x04e3582cc38a038a6f4684a6002d74b70ae6b7cf45e954e99c02655ed2fd8e88",
+      "blockNumber": 25921329,
+      "topic0": "0x412d404c43c6458631ca20b4a5cc4dc993c9ed6ff8b558b6d600f17ccd0deda7",
+      "topics": [
+        "0x412d404c43c6458631ca20b4a5cc4dc993c9ed6ff8b558b6d600f17ccd0deda7",
+        "0xd49ce879e3d13fda0c9b21993f107b3752c7baeb6ccb3e3bef8bca0e129a9ab7",
+        "0xd0431554c39540f53884fd4442bfd4208ec3b9cb0b7bf0ac9dee68815b6e345e",
+        "0x0000000000000000000000003963dd43d4d86749f535c562ee5a14e723323f66"
+      ],
+      "data": "0x00000000000000000000000000000000000000000000000000000000000000019c8728cfd8ef31b874b519b22fea1fd96ac6a910ab9a68ffb3882530881c4a86",
+      "fieldsMatchedTransactionInput": true
+    },
+    "readback": {
+      "method": "getMemory(bytes32)",
+      "blockTag": "latest after confirmed block 25921329",
+      "argument": "0xd49ce879e3d13fda0c9b21993f107b3752c7baeb6ccb3e3bef8bca0e129a9ab7",
+      "returned": {
+        "memoryId": "0xd49ce879e3d13fda0c9b21993f107b3752c7baeb6ccb3e3bef8bca0e129a9ab7",
+        "packageId": "0xd0431554c39540f53884fd4442bfd4208ec3b9cb0b7bf0ac9dee68815b6e345e",
+        "version": 1,
+        "payloadHash": "0x9c8728cfd8ef31b874b519b22fea1fd96ac6a910ab9a68ffb3882530881c4a86",
+        "issuer": "0x3963Dd43d4D86749F535c562Ee5a14E723323f66",
+        "issuedAt": 1791425407,
+        "issuedAtIso": "2026-10-08T02:10:07Z"
+      },
+      "fieldsMatchedTransactionAndEvent": true
+    }
+  },
+  "verification": {
+    "rpcChainIdIs677": true,
+    "rpcRegistryCodePresent": true,
+    "rpcRuntimeHashMatchesConfiguredHash": true,
+    "rpcOwnerMatchesConfiguredOwner": true,
+    "rpcPersonaRecordMatchesConfiguredValues": true,
+    "explorerDeploymentReceiptStatusIs1": true,
+    "explorerPersonaReceiptStatusIs1": true,
+    "explorerMemoryIssueReceiptStatusIs1": true,
+    "applicationMemoryIssuedEventMatched": true,
+    "applicationGetMemoryReadbackMatched": true
+  },
+  "limitations": [
+    "This frontend repository does not bundle the Solidity compiler artifact, so this JSON does not claim an independently reproducible local-bytecode match.",
+    "The canonical journey payload remains client-side by design; this public evidence records only its keccak256 payloadHash and the on-chain verification result."
+  ]
+}
