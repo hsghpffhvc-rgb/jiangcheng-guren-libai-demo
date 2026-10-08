@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#102f35" />
+    <meta
+      name="description"
+      content="江城故人李白线互动游戏 Demo，乘御笔游黄鹤楼，与诗仙共题一首新诗。"
+    />
+    <link
+      rel="icon"
+      type="image/svg+xml"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect rx='14' width='64' height='64' fill='%23102f35'/%3E%3Cpath d='M10 43c14-2 21-18 42-25-9 9-13 17-12 25-9-5-18-4-30 0Z' fill='%23e8d8ae'/%3E%3Ccircle cx='45' cy='19' r='4' fill='%23b44636'/%3E%3C/svg%3E"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <title>江城故人 · 李白篇</title>
+  </head>
+  <body>
+    <audio data-bg-music loop preload="metadata" aria-label="游戏背景音乐">
+      <source src="./assets/game-bgm.mp3" type="audio/mpeg" />
+    </audio>
+    <button class="music-toggle" type="button" data-action="toggle-music" aria-pressed="true">
+      <span class="music-toggle-icon" data-music-icon aria-hidden="true">♫</span>
+      <span data-music-label>音乐开启</span>
+    </button>
+    <main id="game" class="game-shell">
+      <section class="screen screen--active intro-screen" data-screen="intro" aria-labelledby="intro-title">
+        <div class="intro-wash" aria-hidden="true"></div>
+        <div class="intro-copy">
+          <p class="eyebrow">历史人物赛博地陪</p>
+          <h1 id="intro-title">江城故人</h1>
+          <p class="intro-lead">与一位历史故人同游江城，留下你们的记忆。</p>
+          <button class="primary-button" type="button" data-action="enter">开始体验</button>
+          <p class="experience-note">人物为 AI 演绎，景观与载具含幻想创作。</p>
+        </div>
+      </section>
+
+      <section class="screen select-screen" data-screen="select" aria-labelledby="select-title" hidden>
+        <header class="screen-header">
+          <p class="eyebrow">第一章 · 择一故人</p>
+          <h2 id="select-title">谁与你同游江城？</h2>
+          <p>李白路线已开放，其余三位故人将在后续篇章中抵达。</p>
+        </header>
+        <div class="character-grid" role="group" aria-label="选择同行人物">
+          <button class="character-card character-card--selectable" type="button" data-character="libai" aria-pressed="false">
+            <img src="./assets/libai-card-v3.png" alt="" loading="lazy" decoding="async" />
+            <span class="card-caption"><span>李白 <small>黄鹤楼 · 御笔</small></span><strong>可体验</strong></span>
+          </button>
+          <button class="character-card character-card--selectable" type="button" data-character="quyuan" aria-pressed="false">
+            <img src="./assets/quyuan-card-v2.png" alt="" loading="lazy" decoding="async" />
+            <span class="card-caption"><span>屈原 <small>江滩楚风 · 龙舟</small></span><strong>筹备中</strong></span>
+          </button>
+          <button class="character-card character-card--selectable" type="button" data-character="boya_ziqi" aria-pressed="false">
+            <img src="./assets/boya-ziqi-card.png" alt="" loading="lazy" decoding="async" />
+            <span class="card-caption"><span>伯牙与钟子期 <small>古琴台 · 琴舟</small></span><strong>筹备中</strong></span>
+          </button>
+          <button class="character-card character-card--selectable" type="button" data-character="zhangzhidong" aria-pressed="false">
+            <img src="./assets/zhangzhidong-card.png" alt="" loading="lazy" decoding="async" />
+            <span class="card-caption"><span>张之洞 <small>汉阳工业 · 蒸汽火车</small></span><strong>筹备中</strong></span>
+          </button>
+        </div>
+      </section>
+
+      <section class="screen cinematic-screen" data-screen="flight" aria-labelledby="flight-title" hidden>
+        <button class="text-button text-button--light back-button" type="button" data-action="back-select">返回选卡</button>
+        <h2 id="flight-title" class="sr-only">一笔入江城 · 李白篇启幕</h2>
+        <div class="opening-frame">
+          <img class="opening-art" src="./assets/libai-opening.png" alt="江城故人李白篇启幕：乘御笔穿行江城，三程借江风，前往黄鹤楼" loading="lazy" decoding="async" />
+          <button class="opening-start" type="button" data-action="arrive-map" aria-label="启程，前往江城地图"></button>
+        </div>
+        <details class="opening-dialogue">
+          <summary>听李白说</summary>
+          <blockquote>“后生，抓紧了！这御笔借江风而行。昔年吾在黄鹤楼送别孟浩然，如今江面上竟有钢铁巨舟，远处又横卧长虹。且随吾登楼，看一看后世江城！”</blockquote>
+        </details>
+      </section>
+
+      <section class="screen map-screen" data-screen="map" aria-labelledby="map-title" hidden>
+        <img class="map-art" src="./assets/wuhan-map.png" alt="水墨江城地图，标有黄鹤楼等武汉文化地标" loading="lazy" decoding="async" />
+        <div class="map-shade" aria-hidden="true"></div>
+        <header class="map-heading">
+          <p class="eyebrow">御笔落处</p>
+          <h2 id="map-title">黄鹤楼</h2>
+          <p>本地图为数字游览舞台，不作为现实导航。</p>
+        </header>
+        <button class="map-destination" type="button" data-action="enter-tower" aria-label="进入黄鹤楼数字场景">
+          <span class="map-pulse" aria-hidden="true"></span>
+          <span class="map-pin-label">抵达 · 黄鹤楼</span>
+        </button>
+        <div class="map-route" aria-hidden="true"><span></span></div>
+        <img class="map-flight-gif" data-map-flight-gif data-src="./assets/brush-flight.gif" alt="李白乘御笔飞向黄鹤楼" hidden />
+        <p class="map-flight-status" data-map-flight-status aria-live="polite" hidden>御笔正飞向黄鹤楼……</p>
+      </section>
+
+      <section class="screen explore-screen" data-screen="explore" aria-labelledby="explore-title" hidden>
+        <img class="scene-art" src="./assets/tower-view.png" alt="从黄鹤楼眺望长江与长江大桥的数字水墨场景" loading="lazy" decoding="async" />
+        <div class="scene-tint" aria-hidden="true"></div>
+        <header class="explore-hud">
+          <div>
+            <p class="eyebrow eyebrow--light">第二幕 · 水墨观景</p>
+            <h2 id="explore-title">楼上有两处诗境</h2>
+          </div>
+          <div class="ink-progress" aria-live="polite" aria-label="寻幽进度">
+            <span>寻幽进度</span>
+            <strong data-progress-count>0 / 2</strong>
+            <div class="stamp-row" aria-hidden="true"><i></i><i></i></div>
+          </div>
+        </header>
+
+        <button class="hotspot hotspot--flute" type="button" data-anchor="jade_flute" aria-label="查看玉笛故事">
+          <span class="hotspot-orbit"></span><span class="hotspot-core"><img src="./assets/jade-flute-icon.png" alt="" loading="lazy" decoding="async" /></span><span class="hotspot-label">玉笛 · 听笛怀远</span>
+        </button>
+        <button class="hotspot hotspot--crane" type="button" data-anchor="golden_crane" aria-label="查看黄鹤传说">
+          <span class="hotspot-orbit"></span><span class="hotspot-core hotspot-core--crane"><span class="crane-sprite" aria-hidden="true"></span></span><span class="hotspot-label">黄鹤 · 昔人仙踪</span>
+        </button>
+        <nav class="anchor-nav" aria-label="探索锚点快捷入口">
+          <button type="button" data-anchor="jade_flute">玉笛</button>
+          <button type="button" data-anchor="golden_crane">黄鹤</button>
+        </nav>
+        <button class="primary-button explore-next" type="button" data-action="start-poem" hidden>进入下一旅程 · 一起题诗</button>
+        <dialog class="anchor-media-dialog" data-anchor-dialog data-flute-dialog aria-label="玉笛诗境动效">
+          <button class="anchor-dialog-close" type="button" data-action="close-anchor-dialog" aria-label="关闭玉笛动效">×</button>
+          <img data-src="./assets/jade-flute.gif" alt="玉笛置于案上，梅花飘落的动画" />
+          <p>玉笛 · 听笛怀远</p>
+          <aside class="journey-card" aria-label="玉笛旅程卡片">
+            <div class="speaker-row"><span class="speaker-seal">白</span><div><span>同行者</span><strong>李白 · AI 演绎</strong></div></div>
+            <p class="story-kicker" data-journey-type></p>
+            <h3 data-journey-title></h3>
+            <p class="journey-dialogue" data-journey-dialogue></p>
+            <p class="journey-note" data-journey-note></p>
+            <details class="journey-source"><summary>查看诗文与典故来源</summary><div data-journey-source></div></details>
+            <button class="primary-button journey-ack" type="button" data-action="ack-anchor">完成旅程</button>
+          </aside>
+        </dialog>
+        <dialog class="anchor-media-dialog" data-anchor-dialog data-crane-dialog aria-label="黄鹤诗境动效">
+          <button class="anchor-dialog-close" type="button" data-action="close-anchor-dialog" aria-label="关闭黄鹤动效">×</button>
+          <img data-src="./assets/golden-crane-v2.gif" alt="从黄鹤楼内眺望长江与城市的动画" />
+          <p>黄鹤 · 昔人仙踪</p>
+          <aside class="journey-card" aria-label="黄鹤旅程卡片">
+            <div class="speaker-row"><span class="speaker-seal">白</span><div><span>同行者</span><strong>李白 · AI 演绎</strong></div></div>
+            <p class="story-kicker" data-journey-type></p>
+            <h3 data-journey-title></h3>
+            <p class="journey-dialogue" data-journey-dialogue></p>
+            <p class="journey-note" data-journey-note></p>
+            <details class="journey-source"><summary>查看诗文与典故来源</summary><div data-journey-source></div></details>
+            <button class="primary-button journey-ack" type="button" data-action="ack-anchor">完成旅程</button>
+          </aside>
+        </dialog>
+      </section>
+
+      <section class="screen poem-screen" data-screen="poem" aria-labelledby="poem-title" hidden>
+        <div class="poem-paper" aria-hidden="true"></div>
+        <button class="text-button back-button" type="button" data-action="back-explore">返回楼上</button>
+        <div class="poem-layout">
+          <section class="poem-workspace">
+            <p class="eyebrow">第三幕 · 触景共题</p>
+            <h2 id="poem-title">借你眼中的景，题一首今日的新诗</h2>
+            <p class="poem-intro">从下方选择 2 至 3 个意象，每个最多 6 个汉字。诗句由规则演示生成，不能直接修改；可仅修改诗题。</p>
+
+            <div class="keyword-section">
+              <h3>先收下几样景物</h3>
+              <div class="keyword-list" role="group" aria-label="诗歌意象">
+                <button type="button" class="keyword-chip" data-keyword="江风">江风</button>
+                <button type="button" class="keyword-chip" data-keyword="黄鹤">黄鹤</button>
+                <button type="button" class="keyword-chip" data-keyword="长桥">长桥</button>
+                <button type="button" class="keyword-chip" data-keyword="白云">白云</button>
+                <button type="button" class="keyword-chip" data-keyword="笛声">笛声</button>
+                <button type="button" class="keyword-chip" data-keyword="远帆">远帆</button>
+              </div>
+              <p class="selection-hint" data-keyword-hint>请选择 2 至 3 个意象</p>
+            </div>
+
+            <div class="poem-actions poem-actions--generate">
+              <button class="primary-button" type="button" data-action="generate-poem">生成演示诗稿</button>
+            </div>
+
+            <div class="draft-editor" data-draft-editor hidden>
+              <div class="draft-header"><span>共题诗笺 · 规则演示</span><span data-revision>初稿</span></div>
+              <label for="poem-name">诗题</label>
+              <input id="poem-name" class="title-input" maxlength="12" value="借一笔江风" />
+              <label for="poem-lines">诗句</label>
+              <textarea id="poem-lines" rows="4" maxlength="100" readonly aria-readonly="true"></textarea>
+              <p class="draft-error" data-draft-error role="alert" hidden></p>
+              <div class="poem-actions">
+                <button class="text-button" type="button" data-action="rewrite-poem">再写一版</button>
+                <button class="primary-button" type="button" data-action="adopt-poem">采用此诗</button>
+              </div>
+            </div>
+          </section>
+
+          <aside class="poet-companion">
+            <img src="./assets/libai-poem-card.png" alt="李白星洲诗客角色卡" loading="lazy" decoding="async" />
+            <div class="poet-quote">
+              <span>链上记忆</span>
+              <p data-poet-prompt>江城今夜月如舟，把这份江城诗意留在心里！</p>
+            </div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="screen memory-screen" data-screen="memory" aria-labelledby="memory-title" hidden>
+        <div class="memory-stage">
+          <div class="memory-card" id="memory-card">
+            <img src="./assets/memory-settlement.png" alt="李白赛博诗旅记忆卡底图" loading="lazy" decoding="async" />
+            <div class="memory-copy">
+              <p class="memory-eyebrow">江城故人 · 李白篇</p>
+              <h2 id="memory-title">黄鹤楼同游诗旅记忆</h2>
+              <p class="memory-poem-title" data-memory-poem-title></p>
+              <div class="memory-poem" data-memory-poem></div>
+              <div class="memory-meta">
+                <span>今日意象 <strong data-memory-keywords>江风</strong></span>
+                <span>同行记忆 <strong>玉笛、黄鹤</strong></span>
+                <span class="memory-player-note" data-memory-note-row>我的留言 <strong data-memory-note>尚未填写</strong></span>
+                <span>共题说明 <strong>旅伴与李白 AI 演绎共同构思</strong></span>
+              </div>
+              <div class="receipt-strip">
+                <div><span>记忆编号</span><code data-memory-id>JC-LB-DEMO</code></div>
+                <div><span>内容摘要</span><code data-memory-hash>计算中…</code></div>
+              </div>
+              <p class="demo-status" data-chain-card-status><i></i> 本地回执 · 尚未登记 BOT Chain</p>
+            </div>
+          </div>
+
+          <div class="memory-controls">
+            <div>
+              <p class="eyebrow eyebrow--light">终章 · 带走此刻</p>
+              <h3>诗成，记忆已整理</h3>
+              <p>这张记忆卡会保存你选中的意象、诗题、诗句和留言，点击下方按钮即可带走本次江城旅程。</p>
+              <label class="memory-note-label" for="player-note">留一句给今日的江城（选填，最多 60 字）</label>
+              <textarea id="player-note" maxlength="60" rows="2" placeholder="这一程，我最想记住……"></textarea>
+
+              <section class="chain-seal-panel" aria-labelledby="chain-seal-title">
+                <header class="chain-seal-header">
+                  <div>
+                    <p class="chain-kicker"><i data-chain-dot></i> BOT Chain Mainnet</p>
+                    <h4 id="chain-seal-title">把这次相逢留下一枚链上印记</h4>
+                  </div>
+                  <span class="chain-id-badge">Chain ID 677</span>
+                </header>
+                <p class="chain-privacy">仅登记最终内容摘要，诗文与留言原文不上链。签发交易需要项目授权钱包，并会消耗少量 BOT。</p>
+                <dl class="chain-facts">
+                  <div><dt>钱包</dt><dd data-wallet-address>尚未连接</dd></div>
+                  <div><dt>签发权限</dt><dd data-issuer-status>连接后核验</dd></div>
+                  <div><dt>人格包</dt><dd>李白人格包 v1</dd></div>
+                  <div>
+                    <dt>应用合约</dt>
+                    <dd><a data-contract-link href="#" target="_blank" rel="noreferrer">加载配置中…</a></dd>
+                  </div>
+                </dl>
+                <details class="chain-foundation-proof">
+                  <summary>主网部署与交易证据</summary>
+                  <p><a data-deployment-tx-link href="#" target="_blank" rel="noreferrer">合约部署交易 ↗</a></p>
+                  <p><a data-persona-tx-link href="#" target="_blank" rel="noreferrer">李白人格包 v1 登记交易 ↗</a></p>
+                  <p><a data-memory-issue-tx-link href="#" target="_blank" rel="noreferrer">主网记忆签发样例 ↗</a></p>
+                  <p><a href="./mainnet-evidence.json" target="_blank" rel="noreferrer">机器可读证据 JSON ↗</a></p>
+                </details>
+                <div class="chain-actions">
+                  <button class="text-button text-button--light chain-connect" type="button" data-action="connect-wallet">连接 MetaMask</button>
+                  <button class="seal-button" type="button" data-action="seal-memory" disabled>核验后登记主网</button>
+                </div>
+                <p class="chain-status" data-chain-status role="status" aria-live="polite">连接钱包后将依次核验网络、合约代码、人格包与签发权限。</p>
+                <a class="chain-tx-link" data-chain-tx-link href="#" target="_blank" rel="noreferrer" hidden>在 BOT Chain 浏览器查看交易 ↗</a>
+                <div class="chain-recovery-actions">
+                  <button class="text-button text-button--light" type="button" data-action="verify-transaction" hidden>重新核验这笔交易</button>
+                </div>
+                <details class="chain-proof" data-chain-proof hidden>
+                  <summary data-proof-title>查看完整链上核验凭据</summary>
+                  <dl>
+                    <div><dt>On-chain memoryId</dt><dd><code data-proof-memory-id></code></dd></div>
+                    <div><dt>payloadHash</dt><dd><code data-proof-payload-hash></code></dd></div>
+                    <div><dt>issuer</dt><dd><code data-proof-issuer></code></dd></div>
+                    <div><dt>交易区块</dt><dd><code data-proof-block></code></dd></div>
+                  </dl>
+                  <button class="text-button text-button--light" type="button" data-action="download-proof">下载核验凭据 JSON</button>
+                </details>
+              </section>
+            </div>
+            <div class="memory-buttons">
+              <button class="primary-button primary-button--paper" type="button" data-action="download-card">下载记忆卡 PNG</button>
+              <button class="text-button text-button--light" type="button" data-action="restart">再游一次</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="./vendor/ethers.umd.min.js"></script>
+    <script src="./botchain-config.js"></script>
+    <script src="./game.js"></script>
+  </body>
+</html>
