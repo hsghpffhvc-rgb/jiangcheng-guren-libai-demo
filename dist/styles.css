@@ -10,7 +10,6 @@
   --shadow: 0 28px 80px rgba(7, 24, 27, 0.24);
   font-family: "Songti SC", "Noto Serif SC", "STSong", serif;
 }
-
 * { box-sizing: border-box; }
 html, body { margin: 0; min-height: 100%; background: #0b2429; }
 button { font: inherit; }
@@ -54,6 +53,9 @@ body:has(.explore-screen.screen--active) .music-toggle { top: 118px; }
 h1 { margin: 0; font-size: clamp(3.25rem, 10vw, 9rem); font-weight: 600; line-height: 1.08; letter-spacing: -0.06em; white-space: nowrap; }
 .intro-lead { margin: 26px 0 34px; font-size: clamp(1.08rem, 2.2vw, 1.45rem); letter-spacing: 0.08em; }
 .experience-note { margin: 18px 0 0; color: var(--ink-soft); font: .78rem/1.5 system-ui, sans-serif; }
+.co-creation-entry { display: block; width: max-content; max-width: 100%; margin-top: 18px; color: var(--ink); font: 700 .86rem/1.45 system-ui, sans-serif; text-decoration-color: var(--cinnabar); text-underline-offset: 5px; }
+.co-creation-entry:hover { color: var(--cinnabar); }
+.co-creation-entry:focus-visible { outline: 3px solid var(--cyan); outline-offset: 5px; }
 
 .primary-button, .seal-button {
   border: 0;
@@ -83,7 +85,7 @@ h1 { margin: 0; font-size: clamp(3.25rem, 10vw, 9rem); font-weight: 600; line-he
 .screen-header { max-width: 720px; margin: 0 auto 34px; text-align: center; }
 .screen-header h2 { margin: 0 0 12px; font-size: clamp(2.3rem, 5vw, 4.5rem); font-weight: 600; }
 .screen-header p:last-child { margin: 0; font-family: system-ui, sans-serif; color: var(--ink-soft); font-size: 1rem; }
-.character-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; width: min(1320px, 100%); margin: 0 auto; align-items: stretch; }
+.character-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; width: min(680px, 100%); margin: 0 auto; align-items: stretch; }
 .character-card { position: relative; min-width: 0; min-height: 0; overflow: hidden; padding: 0; text-align: left; cursor: pointer; border: 2px solid rgba(16, 47, 53, 0.18); border-radius: 28px 6px 28px 6px; background: rgba(250, 246, 234, 0.72); box-shadow: 0 14px 40px rgba(7, 24, 27, .17); transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease; display: flex; flex-direction: column; }
 .character-card:hover, .character-card.is-selected { transform: translateY(-5px); border-color: var(--cinnabar); box-shadow: var(--shadow); }
 .character-card:focus-visible { outline: 3px solid var(--cyan); outline-offset: 4px; }
@@ -247,6 +249,13 @@ h1 { margin: 0; font-size: clamp(3.25rem, 10vw, 9rem); font-weight: 600; line-he
 .memory-controls textarea { width: 100%; margin-top: 8px; padding: 12px 14px; border: 1px solid rgba(255,255,255,.55); border-radius: 10px; color: #fff5df; background: rgba(0,0,0,.18); font: 1rem/1.5 system-ui, sans-serif; resize: vertical; }
 .memory-controls textarea:disabled { opacity: .72; cursor: not-allowed; }
 
+.official-certification { margin-top: 24px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.16); color: #fff5df; font-family: system-ui, sans-serif; }
+.official-certification > summary { display: grid; grid-template-columns: auto 1fr; gap: 4px 12px; align-items: center; color: #9be8e4; cursor: pointer; list-style-position: outside; }
+.official-certification > summary span { font: 800 .82rem/1.35 system-ui, sans-serif; }
+.official-certification > summary small { color: rgba(255,245,223,.58); font: .7rem/1.4 system-ui, sans-serif; }
+.official-certification[open] > summary { margin-bottom: 10px; }
+.official-certification .chain-seal-panel { margin-top: 0; }
+
 .chain-seal-panel { margin-top: 22px; padding: 18px; border: 1px solid rgba(144,231,226,.36); border-radius: 20px 5px 20px 5px; background: rgba(4,22,27,.55); box-shadow: inset 0 1px rgba(255,255,255,.05); font-family: system-ui, sans-serif; }
 .chain-seal-panel[data-state="ready"] { border-color: rgba(144,231,226,.76); background: rgba(9,47,52,.72); }
 .chain-seal-panel[data-state="confirmed"] { border-color: rgba(94,217,158,.84); background: rgba(9,55,45,.72); }
@@ -297,7 +306,7 @@ h1 { margin: 0; font-size: clamp(3.25rem, 10vw, 9rem); font-weight: 600; line-he
   .memory-controls { width: min(760px, 100%); max-width: 760px; }
 }
 @media (max-width: 980px) {
-  .character-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+  .character-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
   .character-card img { height: min(42vh, 410px); }
   .card-caption { padding: 9px; min-height: 72px; }
   .card-caption span { font-size: .92rem; }
@@ -510,9 +519,11 @@ h1 { margin: 0; font-size: clamp(3.25rem, 10vw, 9rem); font-weight: 600; line-he
 .boya-settle-track-status { min-height: 1.4em; margin: 10px 0 0; color: #cfad64; font: 700 .78rem/1.4 system-ui, sans-serif; }
 
 /* 结算页底部：留言 + 链上封存 */
-.boya-settle-foot { display: grid; grid-template-columns: minmax(260px, .8fr) minmax(0, 1.6fr) auto; gap: clamp(18px, 2.6vw, 36px); width: min(1240px, 100%); margin: clamp(20px, 3vh, 36px) auto 0; padding: clamp(14px, 2vw, 22px); border: 1px solid rgba(207,173,100,.3); border-radius: 20px 6px 20px 6px; background: rgba(6,22,26,.55); backdrop-filter: blur(8px); align-items: start; }
+.boya-settle-foot { display: grid; grid-template-columns: minmax(260px, 1fr) auto; grid-template-areas: "note actions" "official official"; gap: clamp(18px, 2.6vw, 36px); width: min(1240px, 100%); margin: clamp(20px, 3vh, 36px) auto 0; padding: clamp(14px, 2vw, 22px); border: 1px solid rgba(207,173,100,.3); border-radius: 20px 6px 20px 6px; background: rgba(6,22,26,.55); backdrop-filter: blur(8px); align-items: start; }
+.boya-settle-foot-note { grid-area: note; }
+.official-certification--boya { grid-area: official; margin-top: 0; }
 .boya-settle-foot-note textarea { width: 100%; margin-top: 8px; padding: 12px 14px; border: 1px solid rgba(255,255,255,.55); border-radius: 10px; color: #fff5df; background: rgba(0,0,0,.18); font: 1rem/1.5 system-ui, sans-serif; resize: vertical; }
-.boya-settle-foot-actions { display: flex; flex-direction: column; gap: 12px; padding-top: 6px; }
+.boya-settle-foot-actions { grid-area: actions; display: flex; flex-direction: column; gap: 12px; padding-top: 6px; }
 
 /* 链上独立核验页 */
 .verify-screen { position: fixed; z-index: 45; inset: 0; overflow: hidden auto; color: #fff5df; background: radial-gradient(circle at 68% 20%, #1c565c, transparent 38%), #0a2226; }
@@ -538,7 +549,7 @@ h1 { margin: 0; font-size: clamp(3.25rem, 10vw, 9rem); font-weight: 600; line-he
 
 @media (max-width: 1180px) {
   .boya-settle-stage { grid-template-columns: 1fr; }
-  .boya-settle-foot { grid-template-columns: 1fr; }
+  .boya-settle-foot { grid-template-columns: 1fr; grid-template-areas: "note" "actions" "official"; }
   .boya-settle-foot-actions { flex-direction: row; flex-wrap: wrap; }
 }
 @media (max-width: 1080px) {

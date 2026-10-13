@@ -2057,4 +2057,15 @@ function createReadOnlyProvider(timeoutMs = 12000) {
   updateBoyaUI();
   initializeBoyaChainUI();
   registerBoyaMcpTools();
+
+  // 仅向链上共创入口暴露已生成的可分享配方，不暴露钱包或签名状态。
+  window.JiangchengBoyaCoCreation = Object.freeze({
+    getDraft() {
+      if (!state.recipe || !state.recipeJson || !state.recipeTitle) return null;
+      return Object.freeze({
+        title: state.recipeTitle,
+        recipeJson: state.recipeJson,
+      });
+    },
+  });
 })();

@@ -9,9 +9,7 @@ const ethersLib = window.ethers;
 const chainComponentsReady = Boolean(CHAIN_CONFIG && ethersLib);
 const characters = {
   libai: { title: "李白", description: "主题：黄鹤楼诗旅。乘幻想御笔，听玉笛、寻黄鹤，与这位 AI 演绎的故人共题新诗。李白路线现可体验。" },
-  quyuan: { title: "屈原 · 筹备中", description: "主题：江滩楚风；载具：龙舟。角色卡已展示，剧情与互动将在后续补充。" },
   boya_ziqi: { title: "伯牙与钟子期", description: "主题：古琴台知音；载具：琴舟。月湖与琴台双锚点探索、五弦琴共创与音乐记忆胶囊。" },
-  zhangzhidong: { title: "张之洞 · 筹备中", description: "主题：汉阳工业；载具：蒸汽火车。角色卡已展示，剧情与互动将在后续补充。" },
 };
 const stories = {
   jade_flute: {

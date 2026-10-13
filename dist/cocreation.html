@@ -1,0 +1,200 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#efe6d2" />
+    <meta name="description" content="江城故人链上共创：李白诗句唱和与伯牙子期知音评价。" />
+    <title>江城故人 · 链上共创谱系</title>
+    <link rel="stylesheet" href="./cocreation.css" />
+  </head>
+  <body>
+    <header class="co-topbar">
+      <a href="./index.html" class="co-back">
+        <span class="co-back-seal" aria-hidden="true">江</span>
+        <span><strong>江城故人</strong><small>返回原旅程</small></span>
+      </a>
+      <div class="co-network"><i></i> BOT Chain Mainnet · 677</div>
+      <button type="button" class="co-wallet-button" data-action="connect-wallet">连接 MetaMask / OKX</button>
+    </header>
+
+    <main class="co-shell">
+      <section class="co-hero">
+        <div class="co-hero-copy">
+          <p class="co-eyebrow">江城故人 · 共创续章</p>
+          <h1>把唱和与知音，<br />续进同一幅江城长卷</h1>
+          <p>先与故人完成原来的水墨旅程，再用自己的钱包为诗句或曲目落款。朋友接下一句、听懂一曲，彼此的创作关系便由 BOT Chain 留下可核验的谱系。</p>
+
+          <div class="co-journey-bridge" aria-label="从原旅程到链上共创的四个步骤">
+            <span><b>一</b><em>同游江城</em><small>生成诗或曲</small></span>
+            <i aria-hidden="true"></i>
+            <span><b>二</b><em>钱包落款</em><small>本人签名发布</small></span>
+            <i aria-hidden="true"></i>
+            <span><b>三</b><em>邀友回应</em><small>续句或解音</small></span>
+            <i aria-hidden="true"></i>
+            <span><b>四</b><em>共创成谱</em><small>关系链上留存</small></span>
+          </div>
+        </div>
+
+        <dl class="co-wallet-facts">
+          <div><dt>我的落款</dt><dd data-wallet-address>尚未连接</dd></div>
+          <div><dt>共创谱系合约</dt><dd><a data-contract-link href="#">等待部署配置</a></dd></div>
+          <div><dt>原旅程注册簿</dt><dd><a data-source-registry-link href="#">加载配置中…</a></dd></div>
+          <div><dt>谁可以参与</dt><dd>任意 EVM 钱包</dd></div>
+        </dl>
+        <p class="co-status" data-status role="status" aria-live="polite">连接钱包后可切换至 BOT Chain Mainnet，并由你本人确认交易。</p>
+      </section>
+
+      <p class="co-section-kicker">选择要续写的旅程</p>
+      <nav class="co-tabs" aria-label="选择共创路线">
+        <button type="button" data-route-tab="poem" aria-selected="true"><span>李白篇</span><small>邀友续一句</small></button>
+        <button type="button" data-route-tab="music" aria-selected="false"><span>伯牙子期篇</span><small>等一位知音</small></button>
+      </nav>
+
+      <section class="co-route" data-route-panel="poem">
+        <div class="co-route-heading">
+          <div class="co-route-copy">
+            <p>一人写上联，一人接下联</p>
+            <h2>李白篇 · 链上唱和</h2>
+            <span>你从黄鹤楼诗旅带来一句，朋友从分享链接接写下联。两句诗分别由不同钱包落款，并形成不可覆盖的父子关系。</span>
+          </div>
+          <figure class="co-route-portrait" aria-hidden="true"><img src="./assets/libai-poem-card.png" alt="" /></figure>
+          <div class="co-origin-card" data-origin-card="poem">
+            <small>原旅程来源</small>
+            <strong>李白人格包 v1</strong>
+            <code data-poem-package-id>—</code>
+            <em data-poem-package-status>等待链上核验</em>
+          </div>
+        </div>
+
+        <div class="co-grid" data-poem-create>
+          <form class="co-card" data-form="publish-poem">
+            <span class="co-card-index">发起</span>
+            <h3>留下你的上联</h3>
+            <label for="upper-line">上联内容</label>
+            <input id="upper-line" maxlength="32" placeholder="例：江风入笔邀明月" required />
+            <p class="co-hint">这是公开文化创作。确认后，文字与钱包地址会成为主网公开合约数据。</p>
+            <button class="co-primary" type="submit">用我的钱包发布上联</button>
+          </form>
+
+          <aside class="co-card co-card--explain">
+            <span class="co-card-index">链上发生什么</span>
+            <h3>这一句如何找到下一句</h3>
+            <ol>
+              <li>你的钱包签名发布上联</li>
+              <li>作品引用已登记的李白人格包 v1</li>
+              <li>系统生成带 workId 的邀请链接</li>
+              <li>朋友用另一个钱包提交下联</li>
+              <li>页面公开展示来源与父子作品关系</li>
+            </ol>
+          </aside>
+        </div>
+
+        <section class="co-parent" data-poem-response hidden>
+          <header><span>来自一位江城故人的邀请</span><h3>请为这句诗接上下联</h3></header>
+          <blockquote data-upper-line>正在从 BOT Chain 读取上联……</blockquote>
+          <p class="co-author">上联作者 <code data-upper-author>—</code></p>
+          <p class="co-work-origin" data-poem-work-source>正在核验作品的人格包来源……</p>
+          <form data-form="respond-poem">
+            <label for="lower-line">你的下联</label>
+            <input id="lower-line" maxlength="32" placeholder="例：鹤影随诗过汉阳" required />
+            <button class="co-primary" type="submit">签名提交下联</button>
+          </form>
+          <div class="co-lineage" data-poem-lineage></div>
+        </section>
+      </section>
+
+      <section class="co-route" data-route-panel="music" hidden>
+        <div class="co-route-heading">
+          <div class="co-route-copy">
+            <p>一人鼓琴，一人解意</p>
+            <h2>伯牙子期篇 · 链上知音</h2>
+            <span>你从高山流水旅程带来一份音乐配方，朋友聆听后留下独立评价；创作者还可用原钱包认定真正听懂这一曲的人。</span>
+          </div>
+          <figure class="co-route-portrait" aria-hidden="true"><img src="./assets/boya-ziqi-card.png" alt="" /></figure>
+          <div class="co-origin-card" data-origin-card="music">
+            <small>原旅程来源</small>
+            <strong>伯牙子期人格包 v1</strong>
+            <code data-music-package-id>—</code>
+            <em data-music-package-status>等待链上核验</em>
+          </div>
+        </div>
+
+        <div class="co-grid" data-music-create>
+          <form class="co-card" data-form="publish-music">
+            <span class="co-card-index">鼓琴</span>
+            <h3>发布你的曲目配方</h3>
+            <label for="music-title">曲名</label>
+            <input id="music-title" maxlength="32" placeholder="例：月湖松风" required />
+            <label for="recipe-json">音乐配方 JSON</label>
+            <textarea id="recipe-json" rows="8" placeholder='可从高山流水篇自动带入，或粘贴已下载的配方 JSON。' required></textarea>
+            <label class="co-file-label" for="recipe-file">从本地选择配方 JSON</label>
+            <input id="recipe-file" type="file" accept="application/json,.json" />
+            <p class="co-hint">配方通过分享链接交给朋友；主网仅保存配方 Keccak-256 指纹与作者地址。</p>
+            <button class="co-primary" type="submit">用我的钱包发布曲目</button>
+          </form>
+
+          <aside class="co-card co-card--explain">
+            <span class="co-card-index">知音如何成立</span>
+            <h3>这一曲如何等到知音</h3>
+            <ol>
+              <li>创作者发布配方 Hash</li>
+              <li>作品引用已登记的伯牙人格包版本</li>
+              <li>朋友打开专属曲目邀请</li>
+              <li>朋友聆听并提交结构化理解</li>
+              <li>创作者可再次连接并“认定知音”</li>
+            </ol>
+          </aside>
+        </div>
+
+        <section class="co-parent co-music-review" data-music-review hidden>
+          <header><span>伯牙已鼓琴，待一位子期</span><h3 data-shared-music-title>正在读取曲目信息……</h3></header>
+          <p class="co-work-origin" data-music-work-source>正在核验作品的人格包来源……</p>
+          <div class="co-recipe-summary" data-recipe-summary></div>
+          <button class="co-secondary" type="button" data-action="preview-music">试听配方旋律</button>
+          <form data-form="attest-music">
+            <fieldset>
+              <legend>你听见了什么意境？</legend>
+              <div class="co-choice-row">
+                <label><input type="radio" name="interpretation" value="1" required /> 高山</label>
+                <label><input type="radio" name="interpretation" value="2" /> 流水</label>
+                <label><input type="radio" name="interpretation" value="3" /> 相逢</label>
+                <label><input type="radio" name="interpretation" value="4" /> 远响</label>
+              </div>
+            </fieldset>
+            <div class="co-score-grid">
+              <label>共鸣度 <select name="resonance"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label>
+              <label>节奏感 <select name="rhythm"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label>
+              <label>画面感 <select name="imagery"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select></label>
+            </div>
+            <label for="music-comment">子期解读</label>
+            <textarea id="music-comment" name="comment" rows="3" maxlength="120" placeholder="例：起势如山，转折处有江水回声。"></textarea>
+            <button class="co-primary" type="submit">签名留下知音评价</button>
+          </form>
+          <div class="co-attestations" data-attestations></div>
+        </section>
+      </section>
+
+      <section class="co-result" data-result hidden>
+        <p>主网交易已提交并确认</p>
+        <h2 data-result-title>链上共创已成立</h2>
+        <dl>
+          <div><dt>交易 Hash</dt><dd><code data-result-hash></code></dd></div>
+          <div><dt>区块</dt><dd data-result-block>—</dd></div>
+          <div><dt>链上 ID</dt><dd><code data-result-id></code></dd></div>
+          <div><dt>人格来源</dt><dd data-result-source>—</dd></div>
+        </dl>
+        <div class="co-result-actions">
+          <a class="co-primary" data-result-explorer target="_blank" rel="noreferrer">在区块浏览器查看</a>
+          <button class="co-secondary" type="button" data-action="copy-share" hidden>复制邀请链接</button>
+        </div>
+        <p data-share-status aria-live="polite"></p>
+      </section>
+    </main>
+
+    <script src="./vendor/ethers.umd.min.js"></script>
+    <script src="./botchain-config.js"></script>
+    <script src="./wallet-provider.js"></script>
+    <script src="./cocreation.js"></script>
+  </body>
+</html>

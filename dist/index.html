@@ -6,7 +6,7 @@
     <meta name="theme-color" content="#102f35" />
     <meta
       name="description"
-      content="江城故人李白线互动游戏 Demo，乘御笔游黄鹤楼，与诗仙共题一首新诗。"
+      content="江城故人互动叙事 Demo：与李白同游黄鹤楼题诗，或随伯牙子期泛舟琴台共谱知音曲。"
     />
     <link
       rel="icon"
@@ -14,7 +14,7 @@
       href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect rx='14' width='64' height='64' fill='%23102f35'/%3E%3Cpath d='M10 43c14-2 21-18 42-25-9 9-13 17-12 25-9-5-18-4-30 0Z' fill='%23e8d8ae'/%3E%3Ccircle cx='45' cy='19' r='4' fill='%23b44636'/%3E%3C/svg%3E"
     />
     <link rel="stylesheet" href="./styles.css" />
-    <title>江城故人 · 李白篇</title>
+    <title>江城故人 · 李白与伯牙子期</title>
   </head>
   <body>
     <audio data-bg-music loop preload="metadata" aria-label="游戏背景音乐">
@@ -32,6 +32,7 @@
           <h1 id="intro-title">江城故人</h1>
           <p class="intro-lead">与一位历史故人同游江城，留下你们的记忆。</p>
           <button class="primary-button" type="button" data-action="enter">开始体验</button>
+          <a class="co-creation-entry" href="./cocreation.html">进入链上共创谱系 · 唱和与知音 ↗</a>
           <p class="experience-note">人物为 AI 演绎，景观与载具含幻想创作。</p>
         </div>
       </section>
@@ -40,7 +41,7 @@
         <header class="screen-header">
           <p class="eyebrow">第一章 · 择一故人</p>
           <h2 id="select-title">谁与你同游江城？</h2>
-          <p>李白与伯牙子期两条路线已开放，屈原、张之洞将在后续篇章中抵达。</p>
+          <p>李白与伯牙子期两条路线均已开放。</p>
         </header>
         <div class="character-grid" role="group" aria-label="选择同行人物">
           <button class="character-card character-card--selectable" type="button" data-character="libai" aria-pressed="false">
@@ -50,14 +51,6 @@
           <button class="character-card character-card--selectable" type="button" data-character="boya_ziqi" aria-pressed="false">
             <img src="./assets/boya-ziqi-card.png" alt="" decoding="async" />
             <span class="card-caption"><span>伯牙与钟子期 <small>古琴台 · 琴舟</small></span><strong data-boya-card-state>可体验</strong></span>
-          </button>
-          <button class="character-card character-card--selectable" type="button" data-character="quyuan" aria-pressed="false">
-            <img src="./assets/quyuan-card-v2.png" alt="" decoding="async" />
-            <span class="card-caption"><span>屈原 <small>江滩楚风 · 龙舟</small></span><strong>筹备中</strong></span>
-          </button>
-          <button class="character-card character-card--selectable" type="button" data-character="zhangzhidong" aria-pressed="false">
-            <img src="./assets/zhangzhidong-card.png" alt="" decoding="async" />
-            <span class="card-caption"><span>张之洞 <small>汉阳工业 · 蒸汽火车</small></span><strong>筹备中</strong></span>
           </button>
         </div>
       </section>
@@ -229,15 +222,23 @@
               <label class="memory-note-label" for="player-note">留一句给今日的江城（选填，最多 60 字）</label>
               <textarea id="player-note" maxlength="60" rows="2" placeholder="这一程，我最想记住……"></textarea>
 
-              <section class="chain-seal-panel" aria-labelledby="chain-seal-title">
+              <div class="memory-buttons">
+                <button class="primary-button primary-button--paper" type="button" data-cocreation-poem>发布到链上共创谱系 · 邀好友续一句</button>
+                <button class="text-button text-button--light" type="button" data-action="download-card">下载记忆卡 PNG</button>
+                <button class="text-button text-button--light" type="button" data-action="restart">再游一次</button>
+              </div>
+
+              <details class="official-certification">
+                <summary><span>项目官方认证（可选）</span><small>由项目授权钱包签发，不是普通用户共创的前置条件</small></summary>
+                <section class="chain-seal-panel" aria-labelledby="chain-seal-title">
                 <header class="chain-seal-header">
                   <div>
                     <p class="chain-kicker"><i data-chain-dot></i> BOT Chain Mainnet</p>
-                    <h4 id="chain-seal-title">把这次相逢留下一枚链上印记</h4>
+                    <h4 id="chain-seal-title">为这次相逢签发项目认证</h4>
                   </div>
                   <span class="chain-id-badge">Chain ID 677</span>
                 </header>
-                <p class="chain-privacy">仅登记最终内容摘要，诗文与留言原文不上链。签发交易需要项目授权钱包，并会消耗少量 BOT。</p>
+                <p class="chain-privacy">这是项目方的低频认证层：仅登记最终内容摘要，需授权钱包；普通用户发布唱和不需要此权限。</p>
                 <dl class="chain-facts">
                   <div><dt>钱包</dt><dd data-wallet-address>尚未连接</dd></div>
                   <div><dt>签发权限</dt><dd data-issuer-status>连接后核验</dd></div>
@@ -273,11 +274,8 @@
                   </dl>
                   <button class="text-button text-button--light" type="button" data-action="download-proof">下载核验凭据 JSON</button>
                 </details>
-              </section>
-            </div>
-            <div class="memory-buttons">
-              <button class="primary-button primary-button--paper" type="button" data-action="download-card">下载记忆卡 PNG</button>
-              <button class="text-button text-button--light" type="button" data-action="restart">再游一次</button>
+                </section>
+              </details>
             </div>
           </div>
         </div>
@@ -513,15 +511,17 @@
             <p class="demo-status" data-boya-chain-card-status><i></i> 本地回执 · 尚未登记 BOT Chain</p>
           </div>
 
-          <section class="chain-seal-panel" data-boya-chain-panel aria-labelledby="boya-chain-title">
+          <details class="official-certification official-certification--boya">
+            <summary><span>项目官方认证（可选）</span><small>由项目授权钱包签发，不影响普通用户发布曲目</small></summary>
+            <section class="chain-seal-panel" data-boya-chain-panel aria-labelledby="boya-chain-title">
             <header class="chain-seal-header">
               <div>
                 <p class="chain-kicker"><i data-boya-chain-dot></i> BOT Chain Mainnet</p>
-                <h4 id="boya-chain-title">把这一曲留下一枚链上印记</h4>
+                <h4 id="boya-chain-title">为这一曲签发项目认证</h4>
               </div>
               <span class="chain-id-badge">Chain ID 677</span>
             </header>
-            <p class="chain-privacy">仅登记配方内容摘要，琴音序列与留言原文不上链。签发交易需要项目授权钱包，并会消耗少量 BOT。</p>
+            <p class="chain-privacy">这是项目方的低频认证层：仅登记配方摘要，需授权钱包；普通用户发布曲目和知音评价不需要此权限。</p>
             <dl class="chain-facts">
               <div><dt>钱包</dt><dd data-boya-wallet-address>尚未连接</dd></div>
               <div><dt>签发权限</dt><dd data-boya-issuer-status>连接后核验</dd></div>
@@ -547,9 +547,11 @@
               </dl>
               <button class="text-button text-button--light" type="button" data-boya-action="download-proof">下载核验凭据 JSON</button>
             </details>
-          </section>
+            </section>
+          </details>
 
           <div class="boya-settle-foot-actions">
+            <button class="primary-button" type="button" data-cocreation-music>发布到链上共创谱系 · 邀请子期</button>
             <button class="text-button text-button--light" type="button" data-boya-action="download-recipe">下载配方 JSON</button>
             <button class="text-button text-button--light" type="button" data-boya-action="verify-page">打开链上核验页</button>
             <button class="text-button text-button--light" type="button" data-boya-action="restart">再游一次</button>
@@ -579,5 +581,6 @@
     <script src="./botchain-config.js"></script>
     <script src="./game.js"></script>
     <script src="./boya.js"></script>
+    <script src="./cocreation-entry.js"></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 {
-  "schema": "jiangcheng-guren/botchain-mainnet-evidence/v1",
-  "verifiedAt": "2026-10-08T02:11:30Z",
+  "schema": "jiangcheng-guren/botchain-mainnet-evidence/v2",
+  "verifiedAt": "2026-10-13T14:53:58.666Z",
   "network": {
     "name": "BOT Chain Mainnet",
     "chainId": 677,
@@ -30,6 +30,57 @@
       "blockNumber": 25866897,
       "status": 1,
       "explorerUrl": "https://scan.botchain.ai/tx/0x427481d49ae641c8e4dfac922188d007305ada2dafa4f0a65c61394809c70d5a"
+    }
+  },
+  "gaoShanLiuShuiPersonaV1": {
+    "packageKey": "jiangcheng-guren:persona:gaoshan-liushui",
+    "packageId": "0x0e8dea51bcb23e35f71f640b17d49d39a896f8d83e592482a2e70bdf5c35053c",
+    "version": 1,
+    "packageHash": "0x546b02b865dec800c12e0bc793c44ed70983b50601c1d6b3366a5ef195215648",
+    "issuer": "0x3963Dd43d4D86749F535c562Ee5a14E723323f66",
+    "registeredAt": 1791384595,
+    "registeredAtIso": "2026-10-07T14:49:55.000Z",
+    "registration": {
+      "transactionHash": "0xcca61f431e18126f70c90e684ce8c617258e8586d75cef994a479e367cd2967f",
+      "blockNumber": 25866913,
+      "blockHash": "0x27e5d2715f921fda1963c182429dc66ae6f6a3d6acc3447a2cc5b5c35538972f",
+      "status": 1,
+      "from": "0x3963Dd43d4D86749F535c562Ee5a14E723323f66",
+      "to": "0x8DC9E18D2492F19aafa0B96B5bC5f9cd41b45493",
+      "gasUsed": 138922,
+      "gasPriceWei": "20000000000",
+      "explorerUrl": "https://scan.botchain.ai/tx/0xcca61f431e18126f70c90e684ce8c617258e8586d75cef994a479e367cd2967f"
+    },
+    "packageRegisteredEvent": {
+      "address": "0x8DC9E18D2492F19aafa0B96B5bC5f9cd41b45493",
+      "topic0": "0xdade59c496f11944f81475e834a18bfbea8fb4e7c3a9345ec7921de230b32eb3",
+      "logIndex": 0,
+      "fieldsMatchedGetPackageReadback": true
+    }
+  },
+  "coCreationRegistry": {
+    "address": "0xac364Ef166138B225a00F257B4A66F87999453E1",
+    "sourceRegistry": "0x8DC9E18D2492F19aafa0B96B5bC5f9cd41b45493",
+    "runtimeBytecodeHash": "0x52307ac0085b8b14ba4ffcaf76559bbdfb2d187602be153a849b731d30850676",
+    "explorerUrl": "https://scan.botchain.ai/address/0xac364Ef166138B225a00F257B4A66F87999453E1",
+    "deployment": {
+      "transactionHash": "0x180005cdd0592064e9db5cd648d4ac9afb5b89c3613ca091315d17a34a29b719",
+      "blockNumber": 26558421,
+      "blockHash": "0xd6e0d6225222cd153508be6a203d19055f65660a525c4b25285261ff2202f644",
+      "blockTimestamp": "2026-10-13T14:53:55.000Z",
+      "status": 1,
+      "from": "0x3963Dd43d4D86749F535c562Ee5a14E723323f66",
+      "to": null,
+      "gasUsed": 1611590,
+      "gasPriceWei": "20000000000",
+      "feeWei": "32231800000000000",
+      "feeBOT": "0.0322318",
+      "explorerUrl": "https://scan.botchain.ai/tx/0x180005cdd0592064e9db5cd648d4ac9afb5b89c3613ca091315d17a34a29b719"
+    },
+    "readback": {
+      "runtimeCodePresent": true,
+      "runtimeHashMatchedConfig": true,
+      "sourceRegistryMatched": true
     }
   },
   "memoryIssue": {
@@ -94,6 +145,12 @@
     "rpcRuntimeHashMatchesConfiguredHash": true,
     "rpcOwnerMatchesConfiguredOwner": true,
     "rpcPersonaRecordMatchesConfiguredValues": true,
+    "rpcGaoShanLiuShuiRecordMatchesConfiguredValues": true,
+    "explorerGaoShanLiuShuiReceiptStatusIs1": true,
+    "rpcCoCreationRegistryCodePresent": true,
+    "rpcCoCreationRuntimeHashMatchesConfiguredHash": true,
+    "rpcCoCreationSourceRegistryMatches": true,
+    "explorerCoCreationDeploymentReceiptStatusIs1": true,
     "explorerDeploymentReceiptStatusIs1": true,
     "explorerPersonaReceiptStatusIs1": true,
     "explorerMemoryIssueReceiptStatusIs1": true,
